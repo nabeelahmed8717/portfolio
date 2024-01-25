@@ -1,0 +1,16 @@
+.landingPageMain{
+    .landOpener{
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .textHero{
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 22px;
+            margin-bottom: 30px;
+        }
+    }
+}
