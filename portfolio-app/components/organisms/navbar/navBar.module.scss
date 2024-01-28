@@ -4,6 +4,8 @@
     margin: 0 auto;
   }
   .navItems{
-    
+    @media (max-width: 768px) {
+      display: none !important;
+    }
   }
 }

@@ -15,6 +15,9 @@
 .white-dull{
   color: $whiteDull;
 }
+.link-color{
+  color: $linkColor;
+}
 
 
 // #################### flex ####################
@@ -83,6 +86,15 @@
 
 .fs-40 {
   font-size: $fs-40 !important;
+  @media (max-width: 768px) {
+    font-size: $fs-36 !important;
+  }
+  @media (max-width: 600px) {
+    font-size: $fs-29 !important;
+  }
+  @media (max-width: 445px) {
+    font-size: $fs-24 !important;
+  }
 }
 
 .fs-36 {
@@ -99,10 +111,16 @@
 
 .fs-22 {
   font-size: $fs-22 !important;
+  @media (max-width: 600px) {
+    font-size: $fs-18 !important;
+  }
 }
 
 .fs-18 {
   font-size: $fs-18 !important;
+  @media (max-width: 600px) {
+    font-size: $fs-16 !important;
+  }
 }
 
 .fs-16 {
@@ -123,6 +141,11 @@
 
 .fs-9 {
   font-size: $fs-9 !important;
+}
+
+
+.text-center{
+  text-align: center;
 }
 
 
