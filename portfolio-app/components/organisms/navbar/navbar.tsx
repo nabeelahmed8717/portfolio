@@ -7,7 +7,7 @@ import CloseIcon from '@/public/closeIcon'
 import ModalToDrawer from '@/components/shared/modalToDrawer'
 import { useFormik } from 'formik'
 import * as yup from 'yup';
-import styles from './navbar.module.scss'
+import styles from './navbarstyle.module.scss'
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
