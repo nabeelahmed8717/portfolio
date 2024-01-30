@@ -167,7 +167,7 @@ const Navbar = () => {
               <p className='fs-24' onClick={() => setIsResMenu(false)}>Home</p>
               <a href="#about" onClick={() => setIsResMenu(false)}><p className='fs-24'>About</p></a>
               <a href="#projects" onClick={() => setIsResMenu(false)}><p className='fs-24'>Projects</p></a>
-              <p className='fs-24' onClick={() => setIsResMenu(false)}>Contact</p>
+              <p className='fs-24' onClick={() => {setIsResMenu(false); setIsContactModal(true)}}>Contact</p>
 
               <Button variant='outlined' style={{ textTransform: "capitalize" }} className='fs-18' onClick={() => {setIsContactModal(true); setIsResMenu(false)}}>Say Hello</Button>
             </div>
