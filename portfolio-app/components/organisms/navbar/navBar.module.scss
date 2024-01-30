@@ -23,24 +23,23 @@
       display: none !important;
     }
   }
-  
-}
-.navResMenu{
-  a{
-    color: #333;
-    cursor: pointer;
-    text-decoration: none !important;
-    text-align: center;
-    &:hover{
-      color: #000000;
+  .navResMenu{
+    a{
+      color: #333;
+      cursor: pointer;
+      text-decoration: none !important;
+      text-align: center;
+      &:hover{
+        color: #000000;
+      }
     }
-  }
-  p{
-    color: #333;
-    cursor: pointer;
-    text-align: center;
-    &:hover{
-      color: #000000;
+    p{
+      color: #333;
+      cursor: pointer;
+      text-align: center;
+      &:hover{
+        color: #000000;
+      }
     }
   }
 }
