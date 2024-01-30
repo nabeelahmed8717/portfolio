@@ -1,13 +1,13 @@
 'use client'
 import VectorOne from '@/public/vectorone'
 import React, { useEffect, useState } from 'react'
-import styles from './navbar.module.scss'
 import { Box, Button, Grid, SwipeableDrawer, TextField, TextareaAutosize } from '@mui/material'
 import MenuIcon from '@/public/menuIcon'
 import CloseIcon from '@/public/closeIcon'
 import ModalToDrawer from '@/components/shared/modalToDrawer'
 import { useFormik } from 'formik'
 import * as yup from 'yup';
+import styles from './navbar.module.scss'
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,7 +35,7 @@ const Navbar = () => {
   const validationSchema = yup.object({
     name: yup.string().required('Name is required'),
     email: yup.string().email('Invalid email format').required('Email is required'),
-    description: yup.string().required('Budget is required'),
+    description: yup.string().required('description is required'),
   });
 
 
