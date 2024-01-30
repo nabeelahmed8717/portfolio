@@ -89,7 +89,7 @@ const Footer = () => {
             <Image src={rocketImage} width={100} alt={''} />
           </div>
           <h2 className='fs-32 fw-500 text-center' style={{ marginBottom: "40px", marginTop: "20px" }}>
-            I’m excited to learn about your project. Ready to get started?
+            {"I’m excited to learn about your project. Ready to get started?"}
           </h2>
 
           <form onSubmit={formik.handleSubmit}>

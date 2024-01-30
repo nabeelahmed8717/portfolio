@@ -155,20 +155,23 @@ const LandingPage = () => {
     <Box className={styles.landingPageMain}>
       <Box className={styles.landOpener}>
         <h2 className='fs-40 fw-900 title-color' style={{ marginTop: "16vh" }} data-aos="zoom-in" data-aos-duration="500">
-          HEY, I'M NABEEL AHMED
+          {"HEY, I'M NABEEL AHMED"}
         </h2>
         <p className={`${styles.textHero} text-primary fs-22`} data-aos="zoom-in" data-aos-duration="600">
-          A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product. 🚀
+          {"A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product. 🚀"}
         </p>
-        <Box data-aos="zoom-in" data-aos-duration="600">
+        <Box data-aos="zoom-in" data-aos-duration="600" className={styles.avatarProfile}>
           <UserIcon />
         </Box>
 
+        <Box sx={{height:"100px"}}>
         {!isHidden &&
           <div className={styles.scrollCcv} data-aos="fade-down">
             <div className={styles.ranMouse}><div className={styles.mouseScroll}></div></div>
             <p>Scroll Down</p>
-          </div>}
+          </div>
+        }
+        </Box>
 
       </Box>
       <Box className={styles.aboutSection} id='about'>
@@ -184,7 +187,7 @@ const LandingPage = () => {
             <Grid item xs={12} sm={12} md={5} lg={5}>
               <Box>
                 <h2 className='fs-22 title-color' style={{ marginBottom: "10px" }}>Get to know me!</h2>
-                <p className='fs-16 text-primary'>As a seasoned Frontend Web Developer with over 5 years in the industry, I specialize in creating visually striking and user-centric interfaces. My expertise lies in translating design concepts into responsive and high-performance websites and applications. I stay abreast of industry trends, ensuring that my work aligns with current standards while anticipating future needs. Committed to delivering excellence, I bring a proven track record of successful collaborations and a passion for enhancing overall user experiences. Let's elevate your digital presence together.</p>
+                <p className='fs-16 text-primary'>{"As a seasoned Frontend Web Developer with over 5 years in the industry, I specialize in creating visually striking and user-centric interfaces. My expertise lies in translating design concepts into responsive and high-performance websites and applications. I stay abreast of industry trends, ensuring that my work aligns with current standards while anticipating future needs. Committed to delivering excellence, I bring a proven track record of successful collaborations and a passion for enhancing overall user experiences. Let's elevate your digital presence together."}</p>
               </Box>
             </Grid>
             <Grid item xs={12} sm={12} md={7} lg={7}>
@@ -206,14 +209,14 @@ const LandingPage = () => {
         </Box>
       </Box>
 
-      <Box>
-        <h2 className='title-color fs-29' style={{ textAlign: "center", margin: "120px 0px 10px 0px" }} data-aos="zoom-in">My Recent Work</h2>
-        <p className='title-color fs-18' style={{ textAlign: "center", margin: "0px 0px 80px 0px" }} data-aos="zoom-in">Here are a few past design projects I've worked on. Want to see more? <span className='link-color'>Email me</span> .</p>
+      <Box id='projects' sx={{ paddingTop: "120px" }}>
+        <h2 className='title-color fs-29' style={{ textAlign: "center", margin: "0px 0px 10px 0px" }} data-aos="zoom-in">My Recent Work</h2>
+        <p className='title-color fs-18' style={{ textAlign: "center", margin: "0px 0px 80px 0px" }} data-aos="zoom-in">{"Here are a few past design projects I've worked on. Want to see more?"} <span className='link-color'>Email me</span> .</p>
         <Box className={styles.wrapperRecentWork}>
           <Grid container spacing={4}>
             {
               recentProjects.map((item) => (
-                <Grid item xs={12} sm={12} md={4} lg={4}>
+                <Grid item xs={12} sm={12} md={4} lg={4} key={uuidv4()}>
                   <Box className={styles.bxCardsProjects} data-aos="zoom-in">
                     <Image src={item.Image} width={120} alt='' style={{ borderRadius: "8px" }} />
                     <Box >
@@ -231,7 +234,7 @@ const LandingPage = () => {
       <Box className={styles.aboutSection} id='startups' sx={{ marginTop: "120px" }}>
         <Box className={styles.sectionMainAbout} sx={{ height: "444px" }}>
           <h2 className='white-color fs-29' data-aos="zoom-in">My Startup Projects</h2>
-          <p className='white-dull fs-18' data-aos="zoom-in">I'm a bit of a digital product junky. Over the years I've used a lot of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to design and build my own.</p>
+          <p className='white-dull fs-18' data-aos="zoom-in">{"I'm a bit of a digital product junky. Over the years I've used a lot of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to design and build my own."}</p>
         </Box>
         <Box className={styles.sectionMainStartupExtended}>
           <Grid container spacing={4}>
@@ -261,7 +264,7 @@ const LandingPage = () => {
           </Grid>
         </Box>
       </Box>
-      
+
     </Box>
   )
 }

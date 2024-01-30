@@ -4,8 +4,43 @@
     margin: 0 auto;
   }
   .navItems{
+    a{
+      color: #333;
+      cursor: pointer;
+      text-decoration: none !important;
+      &:hover{
+        color: #000000;
+      }
+    }
+    p{
+      color: #333;
+      cursor: pointer;
+      &:hover{
+        color: #000000;
+      }
+    }
     @media (max-width: 768px) {
       display: none !important;
+    }
+  }
+  
+}
+.navResMenu{
+  a{
+    color: #333;
+    cursor: pointer;
+    text-decoration: none !important;
+    text-align: center;
+    &:hover{
+      color: #000000;
+    }
+  }
+  p{
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    &:hover{
+      color: #000000;
     }
   }
 }
