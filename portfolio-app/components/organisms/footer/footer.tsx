@@ -39,7 +39,7 @@ const Footer = () => {
     email: yup.string().email('Invalid email format').required('Email is required'),
     projectType: yup.string().required('Type of Project is required'),
     budget: yup.string().required('Budget is required'),
-    // description: yup.string().required('Budget is required'),
+    // description: yup.string().required('description is required'),
   });
 
 
