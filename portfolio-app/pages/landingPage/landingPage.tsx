@@ -139,9 +139,8 @@ const LandingPage = () => {
           <Image src={gitIcon} className={styles.floatingImages6} alt='profile-image' />
         </Box>
         <Box className={styles.profileContent} >
-          <h1>
-            {"Hello, I’m"} <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span>
-          </h1>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          <h1> {"Hello, I’m"} <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span> </h1>
 
           <Box sx={{ position: "relative", mt: 6, display: "flex", flexWrap: matches ? 'wrap' : '', gap: "10px" }}>
             <Button fullWidth={matches ? true : false} className={styles.sayhelloBtn}>Say hello</Button>
