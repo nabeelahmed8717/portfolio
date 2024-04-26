@@ -140,7 +140,7 @@ const LandingPage = () => {
         </Box>
         <Box className={styles.profileContent} >
           <h1>
-            Hello, I’m <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span>
+            {"Hello, I’m"} <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span>
           </h1>
 
           <Box sx={{ position: "relative", mt: 6, display: "flex", flexWrap: matches ? 'wrap' : '', gap: "10px" }}>
