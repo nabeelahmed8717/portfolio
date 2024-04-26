@@ -14,10 +14,10 @@ import { Box, Button, Grid, IconButton, useMediaQuery } from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image'
-import { workDone } from '../../../mock/landingpage'
 import ModalToDrawer from '@/components/shared/modalToDrawer'
 import Link from 'next/link'
 import LinkIcon from '@/public/icons/link'
+import { workDone } from '@/mock/landingpage'
 
 
 const skillsData = [
