@@ -139,8 +139,11 @@ const LandingPage = () => {
           <Image src={gitIcon} className={styles.floatingImages6} alt='profile-image' />
         </Box>
         <Box className={styles.profileContent} >
-          <h1> Hello, I&apos;m <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span>
+          <h1>
+            Hello, I’m <span className="color-green">Nabeel Ahmed</span>, Website Developer and <br /> <span className="board-res">Graphics Designer <i></i><i></i></span>
           </h1>
+
+
 
           <Box sx={{ position: "relative", mt: 6, display: "flex", flexWrap: matches ? 'wrap' : '', gap: "10px" }}>
             <Button fullWidth={matches ? true : false} className={styles.sayhelloBtn}>Say hello</Button>
@@ -265,7 +268,7 @@ const LandingPage = () => {
                       <Box className={styles?.productChip}>{item.chip}</Box>
                       <Link href={item?.link} target='_blank'>
                         <IconButton>
-                          <LinkIcon/>
+                          <LinkIcon />
                         </IconButton>
                       </Link>
                     </Box>
@@ -289,12 +292,12 @@ const LandingPage = () => {
           <Box className={styles.imageWrapper}>
             <Image src={projectData?.image} alt='--' />
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent:"space-between" }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "30px" }}>
-            <h2>{projectData?.label}</h2>
-            <Box className={styles.productChip}>{projectData.chip}</Box>
+              <h2>{projectData?.label}</h2>
+              <Box className={styles.productChip}>{projectData.chip}</Box>
             </Box>
-            <Link href={projectData?.link} target='_blank'><LinkIcon color='#52cfa9'/></Link>
+            <Link href={projectData?.link} target='_blank'><LinkIcon color='#52cfa9' /></Link>
           </Box>
           <Box className={styles?.description}>
             {
@@ -323,9 +326,9 @@ const LandingPage = () => {
             </Box>
           </Box>
 
-          <Box sx={{background:"#52cfa9"}}>
-            <h3 style={{color:"#FFF", fontSize:"14px", fontWeight:"500"}}>You Reached at the end of content</h3>
-            <h4 style={{color:"#52cfa9", fontSize:"14px", fontWeight:"500"}}>Thanks for Reading</h4>
+          <Box sx={{ background: "#52cfa9" }}>
+            <h3 style={{ color: "#FFF", fontSize: "14px", fontWeight: "500" }}>You Reached at the end of content</h3>
+            <h4 style={{ color: "#52cfa9", fontSize: "14px", fontWeight: "500" }}>Thanks for Reading</h4>
 
           </Box>
         </Box>
