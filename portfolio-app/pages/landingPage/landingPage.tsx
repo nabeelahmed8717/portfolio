@@ -1,5 +1,6 @@
 
 'use client'
+/* eslint-disable */
 import React, { useEffect, useState } from 'react'
 import styles from './landingPage.module.scss'
 import profileVector from '@/public/images/vectorprofile.png'
@@ -139,9 +140,9 @@ const LandingPage = () => {
           <Image src={gitIcon} className={styles.floatingImages6} alt='profile-image' />
         </Box>
         <Box className={styles.profileContent} >
-          {/* <h1>
+          <h1>
             Hello, Im <span className="color-green">Nabeel Ahmed</span>, Website Developer and <br /> <span className="board-res">Graphics Designer <i></i><i></i></span>
-          </h1> */}
+          </h1>
 
 
 
