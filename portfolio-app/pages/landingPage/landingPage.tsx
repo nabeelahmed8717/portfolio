@@ -288,7 +288,7 @@ const LandingPage = () => {
       </Box>
 
 
-      <ModalToDrawer toggleDrawer={toggleDrawer} open={open} padding={'20px'} borderRadius='20px 0px 20px 0px'>
+      <ModalToDrawer toggleDrawer={toggleDrawer} open={open} padding={'20px'} borderRadius='20px 20px 0px 0px'>
         <Box className={styles.projectInfoModal}>
           <Box className={styles.imageWrapper}>
             <Image src={projectData?.image} alt='--' />
