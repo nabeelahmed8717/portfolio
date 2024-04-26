@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import styles from './footer.module.scss'
-import { Box, Button, Drawer, FormControl, FormHelperText, Grid, IconButton, InputLabel, MenuItem, Modal, Select, SwipeableDrawer, TextareaAutosize } from '@mui/material'
+import { Box, Button,  FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material'
 import HandHorns from '@/public/handHorns'
 import VectorOne from '@/public/vectorone'
 import WhatsappIcon from '@/public/icons/social/whatsapp'

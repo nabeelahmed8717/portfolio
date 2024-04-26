@@ -7,7 +7,7 @@ import { NextAppDirEmotionCacheProvider } from './emotionCache'
 const themeOptions: ThemeOptions = {
     palette: {
         primary: {
-            main: '#583AF1', // Your primary color
+            main: '#C8F31D', // Your primary color
         },
         secondary: {
             main: '#16a085', // Your secondary color
@@ -18,20 +18,61 @@ const themeOptions: ThemeOptions = {
             styleOverrides: {
                 root: {
                     borderRadius: '30px',
-                    height:"fit-content"
+                    height:"fit-content",
+                    fontSize:"15px",
                 },
                 outlined: {
-                    color: '#583AF1', // Text color
-                    borderColor: '#583AF1', // Border color
+                    color: '#fff', // Text color
+                    borderColor: 'transparent', // Border color
                     borderWidth: '2px', // Border width
+                    background:"#ffffff24",
                     '&:hover': {
-                        backgroundColor: '#583AF1', // Background color on hover
+                        backgroundColor: '#fff', // Background color on hover
                         borderWidth: '2px',
+                        borderColor: 'transparent',
+                        color: '#000',
+                    },
+                },
+            },
+        },
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    background: '#1A1D1F',
+                },
+            },
+        },
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '8px !important',
+                    backgroundColor:"#272B30",
+                },
+                input: {
+                    height: '11px',
+                    '&::placeholder': {
+                        opacity: 1,
                         color: '#fff',
                     },
                 },
             },
         },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    transition:"0.3s",
+                    '& .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#272B30',
+                    },
+                    '&.Mui-disabled': {
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            borderColor:' #272B30',
+                        },
+                    },
+                },
+            },
+        },
+        
     },
 }
 

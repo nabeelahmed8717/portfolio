@@ -1,7 +1,6 @@
 'use client'
-import { Box, IconButton, Modal, SwipeableDrawer } from '@mui/material'
+import { Box, Modal, SwipeableDrawer } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import styles from './modalToDrawer.module.scss'
 import CloseIcon from '@/public/closeIcon';
 
 const style = {
@@ -10,13 +9,16 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '50%',
-    bgcolor: 'background.paper',
+    bgcolor: '#1A1D1F',
     borderRadius: "20px",
     boxShadow: 24,
-    p: 7,
+    border: "none",
+    outline:"none",
+    
+
 };
 
-const ModalToDrawer = ({ children, toggleDrawer, open }: any) => {
+const ModalToDrawer = ({ children, toggleDrawer, open, padding }: any) => {
 
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -38,9 +40,9 @@ const ModalToDrawer = ({ children, toggleDrawer, open }: any) => {
                 isMobile ?
                     <SwipeableDrawer anchor="bottom" open={open} onClose={toggleDrawer(false)} onOpen={() => console.log('')}>
                         <div>
-                        <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} onClick={toggleDrawer(false)}><CloseIcon /></div>
-                            <div style={{padding:"20px"}}>
-                            {children}
+                            <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} onClick={toggleDrawer(false)}><CloseIcon /></div>
+                            <div style={{ padding: "20px" }}>
+                                {children}
                             </div>
                         </div>
                     </SwipeableDrawer>
@@ -51,9 +53,27 @@ const ModalToDrawer = ({ children, toggleDrawer, open }: any) => {
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
-                        <Box sx={style}>
-                            <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} onClick={toggleDrawer(false)}><CloseIcon /></div>
+                        <Box sx={style} style={{
+                            padding: padding ?? '24px',
+                        }}>
+                            <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer", background:"linear-gradient(90deg, rgb(29 29 29 / 0%) 32%, rgb(26 29 31) 32%)", width:"20px", height:"30px" }} onClick={toggleDrawer(false)}><CloseIcon /></div>
+                            <Box sx={{
+                                maxHeight: '80vh',
+                                overflow: 'scroll',
+                                paddingRight: '10px',
+                                '&::-webkit-scrollbar': {
+                                  backgroundColor: '#43474ab0',
+                                  width: '8px',
+                                  height: '0px',
+                                  borderRadius:"20px",
+                                },
+                                '&::-webkit-scrollbar-thumb': {
+                                  background: '#7b7b7b',
+                                  borderRadius: '20px',
+                                },
+                            }}>
                             {children}
+                            </Box>
                         </Box>
                     </Modal>
             }

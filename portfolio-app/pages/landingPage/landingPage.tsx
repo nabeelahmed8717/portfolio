@@ -2,32 +2,47 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import styles from './landingPage.module.scss'
-import UserIcon from '@/public/user'
-import Image from 'next/image'
-import heroDevicesSvg from '../../public/heroDevices.svg'
-import smdWrapperImage from '../../public/images/smd-wrapper.png'
-import rndWrapperImage from '../../public/images/rnd-wrapper.png'
-import plWrapperImage from '../../public/images/pl-wrapper.png'
-import ehbWrapperImage from '../../public/images/ehb-wrapper.png'
-import clockLogWrapperImage from '../../public/images/clocklog-wrapper.png'
-import aacWrapperImage from '../../public/images/aac-wrapper.png'
-
-
-import quiklersLogo from '../../public/icons/quiklers.svg'
-import skoodexLogo from '../../public/icons/skoodex.svg'
-import stolenCelLogo from '../../public/icons/stolencel.svg'
-
-import { Box, Grid } from '@mui/material'
-import { v4 as uuidv4 } from 'uuid';
-import SkillsContainer from '@/components/molecules/skillsContainer/skillsContainer'
-import ArrowUpRight from '@/public/arrowUpRight'
-import GitBranch from '@/public/gitBranch'
-import BulbIdea from '@/public/bulbIdea'
-
+import profileVector from '@/public/images/vectorprofile.png'
+import javaScriptIcon from '@/public/images/javascript.png'
+import htmlIcon from '@/public/images/html.png'
+import cssIcon from '@/public/images/css.png'
+import reactIcon from '@/public/images/reactjs.png'
+import nodeIcon from '@/public/images/nodejs.png'
+import gitIcon from '@/public/images/git.png'
+import { Box, Button, Grid, IconButton, useMediaQuery } from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Image from 'next/image'
+import { workDone } from './landingpage.data'
+import ModalToDrawer from '@/components/shared/modalToDrawer'
+import Link from 'next/link'
+import LinkIcon from '@/public/icons/link'
 
-const developmentSkills = [
+
+const skillsData = [
+  {
+    label: "Javascript",
+    icon: javaScriptIcon,
+    progress: "85%"
+  },
+  {
+    label: "HTML",
+    icon: htmlIcon,
+    progress: "90%"
+  },
+  {
+    label: "CSS",
+    icon: cssIcon,
+    progress: "95%"
+  },
+  {
+    label: "NodeJS",
+    icon: nodeIcon,
+    progress: "40%"
+  },
+]
+
+const skillsLanguages = [
   'React.js',
   'Next.js',
   'TypeScript',
@@ -36,13 +51,11 @@ const developmentSkills = [
   'Express.js',
   'HTML',
   'CSS / SCSS',
-  'Analytics',
-  'Responsive Design',
   'Cross-Browser Compatibility',
   'Deployment',
-  'Debugging'
 ];
-const frameWorksLibraries = [
+
+const skillsFrameworks = [
   'React-router-dom',
   'Redux',
   'React Hook Form',
@@ -50,7 +63,6 @@ const frameWorksLibraries = [
   'Material UI',
   'Ant Design',
   'Tailwind CSS',
-  'Formik',
   'RTK Query',
   'Socket.io',
   'Joi',
@@ -58,72 +70,24 @@ const frameWorksLibraries = [
   'Jest',
   'SCSS',
   'Bootstrap',
-  'Styled Components',
+  'Styled Components'
 ];
 
-const developerTools = [
+const skillsTools = [
   'VS Code',
-  'Visual Studio',
-  'AWS Code Commit',
+  'AWS',
   'Bitbucket',
   'GitHub',
   'Git',
-  'React Developer Tools',
   'Redux DevTools',
-  'Sublime Text',
   'npm',
   'Jira',
   'Vercel',
   'Swagger',
   'Figma',
-  'Adobe Photoshop',
+  'Adobe Photoshop'
 ];
 
-interface IRECENTPROJECTS {
-  title: string;
-  description: string;
-  Image: any;
-  link: string;
-}
-
-const recentProjects: IRECENTPROJECTS[] = [
-  {
-    title: "Share My Dine (SMD)",
-    description: "An application where you Discover great food and dining experiences near you!",
-    Image: smdWrapperImage,
-    link: '',
-  },
-  {
-    title: "RND Tax Claims",
-    description: "R&D tax relief can reduce your corporation tax or lead to a payable tax credit. This guidance is for SMEs making a claim.",
-    Image: rndWrapperImage,
-    link: '',
-  },
-  {
-    title: "Personal Library (Sale Site)",
-    description: "R&D tax relief can reduce your corporation tax or lead to a payable tax credit. This guidance is for SMEs making a claim.",
-    Image: plWrapperImage,
-    link: '',
-  },
-  {
-    title: "ClockLog",
-    description: "Time tracking tools for employee to track their productive time",
-    Image: clockLogWrapperImage,
-    link: '',
-  },
-  {
-    title: "Air Apple Cart",
-    description: "Sales and marketing service provider for companies",
-    Image: aacWrapperImage,
-    link: '',
-  },
-  {
-    title: "EHB (Education Health Business)",
-    description: "EHB is an online tech-driven hub connecting global professionals and service providers",
-    Image: ehbWrapperImage,
-    link: '',
-  },
-]
 
 
 const LandingPage = () => {
@@ -134,137 +98,258 @@ const LandingPage = () => {
     });
   }, []);
 
-  const [isHidden, setIsHidden] = useState(false);
+  const matches = useMediaQuery('(max-width:800px)');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setIsHidden(currentScrollPos > 0);
-    };
+  const [open, setOpen] = useState(false);
 
-    // Attach the event listener when the component mounts
-    window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const [projectData, setProjectData] = useState<any>({})
+
+  const toggleDrawer = (isOpen: any) => () => {
+    setOpen(isOpen);
+  };
+
+
+  const handelProjectCardClicked = (att: any) => {
+    if (att) {
+      setProjectData(att)
+      setOpen(true)
+    }
+
+  };
 
   return (
     <Box className={styles.landingPageMain}>
-      <Box className={styles.landOpener}>
-        <h2 className='fs-40 fw-900 title-color' style={{ marginTop: "16vh" }} data-aos="zoom-in" data-aos-duration="500">
-          {"HEY, I'M NABEEL AHMED"}
-        </h2>
-        <p className={`${styles.textHero} text-primary fs-22`} data-aos="zoom-in" data-aos-duration="600">
-          {"A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product. 🚀"}
-        </p>
-        <Box data-aos="zoom-in" data-aos-duration="600" className={styles.avatarProfile}>
-          <UserIcon />
-        </Box>
-
-        <Box sx={{height:"100px"}}>
-        {!isHidden &&
-          <div className={styles.scrollCcv} data-aos="fade-down">
-            <div className={styles.ranMouse}><div className={styles.mouseScroll}></div></div>
-            <p>Scroll Down</p>
-          </div>
-        }
-        </Box>
-
+      <Box className={styles.lines}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </Box>
-      <Box className={styles.aboutSection} id='about'>
-        <Box className={`${styles.aboutImage} 'flex align-center justify-center'`} data-aos="fade-up">
-          <Image src={heroDevicesSvg} width={600} alt={''} />
-        </Box>
-        <Box className={styles.sectionMainAbout} sx={{ height: "544px" }}>
-          <h2 className='white-color fs-29' data-aos="zoom-in">About me</h2>
-          <p className='white-dull fs-18' data-aos="zoom-in">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
-        </Box>
-        <Box className={styles.sectionMainAboutExtended}>
-          <Grid container spacing={8}>
-            <Grid item xs={12} sm={12} md={5} lg={5}>
-              <Box>
-                <h2 className='fs-22 title-color' style={{ marginBottom: "10px" }}>Get to know me!</h2>
-                <p className='fs-16 text-primary'>{"As a seasoned Frontend Web Developer with over 5 years in the industry, I specialize in creating visually striking and user-centric interfaces. My expertise lies in translating design concepts into responsive and high-performance websites and applications. I stay abreast of industry trends, ensuring that my work aligns with current standards while anticipating future needs. Committed to delivering excellence, I bring a proven track record of successful collaborations and a passion for enhancing overall user experiences. Let's elevate your digital presence together."}</p>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={12} md={7} lg={7}>
-              <Box>
-                <h2 className='fs-22 title-color' style={{ marginBottom: "30px" }}>My Skills 🎯</h2>
-                <Box data-aos="fade-left">
-                  <SkillsContainer data={developmentSkills} colorScheme={'green'} mb={'30px'} title={'Development'} />
-                </Box>
-                <Box data-aos="fade-left">
-                  <SkillsContainer data={frameWorksLibraries} colorScheme={'blue'} mb={'30px'} title={'Libraries & Frameworks'} />
-                </Box>
-                <Box data-aos="fade-left">
-                  <SkillsContainer data={developerTools} colorScheme={'ocean'} mb={'30px'} title={'Developer Tools'} />
-                </Box>
 
-              </Box>
-            </Grid>
-          </Grid>
+      <Box className={styles.mainProfileBox} data-aos="fade-right">
+        <Box className={styles.profileCard}>
+          <Image src={profileVector} className={styles.profileImage} width={matches ? 150 : 200} alt='profile-image' />
+          <Image src={javaScriptIcon} className={styles.floatingImages1} alt='profile-image' />
+          <Image src={htmlIcon} className={styles.floatingImages2} alt='profile-image' />
+          <Image src={cssIcon} className={styles.floatingImages3} alt='profile-image' />
+          <Image src={reactIcon} className={styles.floatingImages4} alt='profile-image' />
+          <Image src={nodeIcon} className={styles.floatingImages5} alt='profile-image' />
+          <Image src={gitIcon} className={styles.floatingImages6} alt='profile-image' />
+        </Box>
+        <Box className={styles.profileContent} >
+          <h1>
+            Hello, I’m <span className='color-green'>Nabeel Ahmed</span>, Website Developer and <br /> <span className='board-res'>Graphics Designer <i></i><i></i></span>
+          </h1>
+
+          <Box sx={{ position: "relative", mt: 6, display: "flex", flexWrap: matches ? 'wrap' : '', gap: "10px" }}>
+            <Button fullWidth={matches ? true : false} className={styles.sayhelloBtn}>Say hello</Button>
+            <Button fullWidth={matches ? true : false} className={styles.downloadCvBtn}>Download CV</Button>
+          </Box>
+
         </Box>
       </Box>
 
-      <Box id='projects' sx={{ paddingTop: "120px" }}>
-        <h2 className='title-color fs-29' style={{ textAlign: "center", margin: "0px 0px 10px 0px" }} data-aos="zoom-in">My Recent Work</h2>
-        <p className='title-color fs-18' style={{ textAlign: "center", margin: "0px 0px 80px 0px" }} data-aos="zoom-in">{"Here are a few past design projects I've worked on. Want to see more?"} <span className='link-color'>Email me</span> .</p>
-        <Box className={styles.wrapperRecentWork}>
-          <Grid container spacing={4}>
+      <Box className={styles.mySkills} >
+        <Box className={styles.aboutMe}>
+          <Box className={styles.aboutmeHead}>
+            <h2>About me</h2>
+            <p>Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
+          </Box>
+
+          <Box sx={{ padding: "40px", mt: 5 }}>
+
+            <Grid container spacing={6}>
+              <Grid item sm={12} md={5} lg={5}>
+                <Box className={styles.aboutInfo}>
+                  <h2>Get to know me!</h2>
+                  <p>As a seasoned Frontend Web Developer with over 5 years in the industry, I specialize in creating visually striking and user-centric interfaces. My expertise lies in translating design concepts into responsive and high-performance websites and applications. I stay abreast of industry trends, ensuring that my work aligns with current standards while anticipating future needs. Committed to delivering excellence, I bring a proven track record of successful collaborations and a passion for enhancing overall user experiences. Let's elevate your digital presence together.</p>
+                </Box>
+              </Grid>
+              <Grid item sm={12} md={7} lg={7}>
+                <Box className={styles.mySkillsProgress}>
+                  <h2>Skills</h2>
+                  <Box className={styles.mySkillsProgressWrapper}>
+
+
+                    <Grid container spacing={2}>
+                      {
+                        skillsData.map((item: any, index: any) => (
+                          <Grid item xs={12} sm={12} md={12} lg={6} key={index}>
+                            <Box className={styles.mySkillsProgressWrapperBox} data-aos="zoom-in">
+                              <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
+                                <Image src={item?.icon} width={30} alt='javascript' />
+                                <h3 style={{ fontSize: "16px", fontWeight: "600" }}>{item.label}</h3>
+                              </Box>
+                              <Box sx={{
+                                position: "absolute", bottom: "0",
+                                width: "83%",
+                                margin: "0 auto",
+                                left: "0",
+                                right: "0",
+                              }}>
+                                <ProgressCustom progress={item.progress} />
+                              </Box>
+                              <Box className={styles.progressChip}>{item.progress}</Box>
+                            </Box>
+                          </Grid>
+                        ))
+                      }
+
+
+                    </Grid>
+
+
+
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+
+          </Box>
+        </Box>
+
+
+        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <Box className={styles.languagesAndTech}>
+            <Box className={styles.upperGrp}></Box>
+            <Box className={styles.lowerGrp}></Box>
+            <Box className={styles.languagesAndTechHead}>
+              <h3>
+                Technologies
+              </h3>
+              <p><span>Languages and FrameWorks</span> I Use</p>
+            </Box>
+
+            <Box className={styles.lg3ChipWrapper} data-aos="fade-up">
+              {
+                skillsLanguages.map((item: any, key: any) => (
+                  <Box className={styles.chip} key={key}>{item}</Box>
+                ))
+              }
+            </Box>
+            <Box className={styles.lg3ChipWrapper} data-aos="fade-up">
+              {
+                skillsFrameworks.map((item: any, key: any) => (
+                  <Box className={styles.chip} key={key}>{item}</Box>
+                ))
+              }
+            </Box>
+            <Box className={styles.lg3ChipWrapper} data-aos="fade-up">
+              {
+                skillsTools?.map((item: any, key: any) => (
+                  <Box className={styles?.chip} key={key}>{item}</Box>
+                ))
+              }
+            </Box>
+
+          </Box>
+        </Box>
+
+
+        <Box className={styles?.myPortfolio}>
+          <Box className={styles?.myPortfolioHead}>
+            <h3>Our Portfolio</h3>
+            <p>Look at my work & <br /> give <span>your feedback</span></p>
+          </Box>
+
+          <Grid container spacing={6}>
             {
-              recentProjects.map((item) => (
-                <Grid item xs={12} sm={12} md={4} lg={4} key={uuidv4()}>
-                  <Box className={styles.bxCardsProjects} data-aos="zoom-in">
-                    <Image src={item.Image} width={120} alt='' style={{ borderRadius: "8px" }} />
-                    <Box >
-                      <h3>{item.title} <ArrowUpRight color='#9b9b9b' size='15' /> </h3>
-                      <p className='text-primary fs-14'>{item.description}</p>
+              workDone?.map((item: any, key: any) => (
+                <Grid item sm={12} md={6} lg={4} key={key} onClick={() => handelProjectCardClicked(item)}>
+                  <Box className={styles?.productMainWrapper} data-aos="zoom-in-up">
+                    <Box className={styles?.productMainBox}>
+                      <Image src={item?.image} alt='-' />
                     </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <Box className={styles?.productChip}>{item.chip}</Box>
+                      <Link href={item?.link} target='_blank'>
+                        <IconButton>
+                          <LinkIcon/>
+                        </IconButton>
+                      </Link>
+                    </Box>
+                    <h4>{item.label}</h4>
                   </Box>
                 </Grid>
               ))
             }
-          </Grid>
-        </Box>
-      </Box>
-
-      <Box className={styles.aboutSection} id='startups' sx={{ marginTop: "120px" }}>
-        <Box className={styles.sectionMainAbout} sx={{ height: "444px" }}>
-          <h2 className='white-color fs-29' data-aos="zoom-in">My Startup Projects</h2>
-          <p className='white-dull fs-18' data-aos="zoom-in">{"I'm a bit of a digital product junky. Over the years I've used a lot of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to design and build my own."}</p>
-        </Box>
-        <Box className={styles.sectionMainStartupExtended}>
-          <Grid container spacing={4}>
-
-            <Grid item xs={12} sm={12} md={4} lg={4}>
-              <Box className={styles.startupDisCards} data-aos="fade-up">
-                <Image src={quiklersLogo} width={110} alt={''} />
-                <p className='fs-16 text-primary text-center' style={{ height: "85px" }}>Transforming local service provision for the contemporary era by introducing innovative solutions tailored to modern needs.</p>
-                <Box className={styles.tag}> <GitBranch /> &nbsp; in development</Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={12} md={4} lg={4}>
-              <Box className={styles.startupDisCards} data-aos="fade-up">
-                <Image src={skoodexLogo} width={110} alt={''} />
-                <p className='fs-16 text-primary text-center' style={{ height: "85px" }}>A comprehensive school management platform designed to foster collaboration among schools, teachers, and parents, aiming to enhance student performance.</p>
-                <Box className={styles.tag}> <BulbIdea /> &nbsp; validating idea</Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={12} md={4} lg={4}>
-              <Box className={styles.startupDisCards} data-aos="fade-up">
-                <Image src={stolenCelLogo} width={110} alt={''} />
-                <p className='fs-16 text-primary text-center' style={{ height: "85px" }}>A sophisticated application designed to facilitate the recovery of lost or stolen mobile devices through collaborative efforts with local retailers and shopkeepers.</p>
-                <Box className={styles.tag}> <BulbIdea /> &nbsp; validating idea</Box>
-              </Box>
-            </Grid>
 
           </Grid>
+
+
         </Box>
+
+
       </Box>
 
+
+      <ModalToDrawer toggleDrawer={toggleDrawer} open={open} padding={'20px'}>
+        <Box className={styles.projectInfoModal}>
+          <Box className={styles.imageWrapper}>
+            <Image src={projectData?.image} alt='--' />
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent:"space-between" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "30px" }}>
+            <h2>{projectData?.label}</h2>
+            <Box className={styles.productChip}>{projectData.chip}</Box>
+            </Box>
+            <Link href={projectData?.link} target='_blank'><LinkIcon color='#52cfa9'/></Link>
+          </Box>
+          <Box className={styles?.description}>
+            {
+              projectData?.detailedDescription
+            }
+          </Box>
+          <Box mt={3}>
+            <h4 style={{ fontSize: "15px", fontWeight: "500" }}>Languages and Frameworks used</h4>
+            <Box className={styles.lg4ChipWrapper} >
+              {
+                projectData?.languagesUsed?.map((item: any, index: any) => (
+                  <Box className={styles.chip} key={index} >{item}</Box>
+                ))
+              }
+            </Box>
+
+          </Box>
+          <Box mt={3}>
+            <h4 style={{ fontSize: "15px", fontWeight: "500" }}>Tools used</h4>
+            <Box className={styles.lg4ChipWrapper} >
+              {
+                projectData?.toolsUsed?.map((item: any, index: any) => (
+                  <Box className={styles.chip} key={index}>{item}</Box>
+                ))
+              }
+            </Box>
+          </Box>
+
+          <Box sx={{background:"#52cfa9"}}>
+            <h3 style={{color:"#FFF", fontSize:"14px", fontWeight:"500"}}>You Reached at the end of content</h3>
+            <h4 style={{color:"#52cfa9", fontSize:"14px", fontWeight:"500"}}>Thanks for Reading</h4>
+
+          </Box>
+        </Box>
+      </ModalToDrawer >
+
+    </Box >
+  )
+}
+
+const ProgressCustom = ({ progress }: any) => {
+  return (
+    <Box sx={{
+      backgroundColor: "#343434",
+      width: "100%",
+      height: "3px",
+      borderRadius: "10px",
+      overflow: "hidden"
+    }}>
+      <Box sx={{
+        background: "#fff",
+        width: progress,
+        height: "100%"
+      }}></Box>
     </Box>
   )
 }

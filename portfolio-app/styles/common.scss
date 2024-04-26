@@ -1,24 +1,77 @@
 @import "./variables.scss";
 
-
 // #################### colors ####################
 
-.text-primary{
+.text-primary {
   color: $textPrimary;
 }
-.title-color{
+.title-color {
   color: $titleColor;
 }
-.white-color{
+.white-color {
   color: $whiteColor;
 }
-.white-dull{
+.white-dull {
   color: $whiteDull;
 }
-.link-color{
+.link-color {
   color: $linkColor;
 }
+.color-green {
+  color: #c8f31d;
+}
 
+.board-res {
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+
+ 
+
+  i {
+    &:last-child{
+      &:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ffffff;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      &:after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ffffff;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    &:before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      left: 0;
+    }
+    &:after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
 
 // #################### flex ####################
 
@@ -143,11 +196,9 @@
   font-size: $fs-9 !important;
 }
 
-
-.text-center{
+.text-center {
   text-align: center;
 }
-
 
 // #################### Font Weights ####################
 
@@ -177,4 +228,20 @@
 
 .fw-300 {
   font-weight: $fw-300 !important;
+}
+.overF-80v {
+  max-height: 80vh;
+  overflow: scroll;
+  padding-right: 10px;
+  
+
+  &::-webkit-scrollbar {
+    background-color: #ededed;
+    width: 8px;
+    height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c8c7c7;
+    border-radius: 20px;
+  }
 }

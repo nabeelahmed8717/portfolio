@@ -5,7 +5,7 @@
   }
   .navItems{
     a{
-      color: #333;
+      color: #ffffff;
       cursor: pointer;
       text-decoration: none !important;
       &:hover{
@@ -13,10 +13,11 @@
       }
     }
     p{
-      color: #333;
+      color: #ffffff;
       cursor: pointer;
+      font-size: 15px;
       &:hover{
-        color: #000000;
+        color: #919191;
       }
     }
     @media (max-width: 768px) {

@@ -19,14 +19,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window?.matchMedia('(max-width: 768px)');
     function handleViewportChange(event: any) {
-      setIsMobile(event.matches);
+      setIsMobile(event?.matches);
     }
     handleViewportChange(mediaQuery);
-    mediaQuery.addListener(handleViewportChange);
+    mediaQuery?.addListener(handleViewportChange);
     return () => {
-      mediaQuery.removeListener(handleViewportChange);
+      mediaQuery?.removeListener(handleViewportChange);
     };
   }, []);
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                   <a href="#projects"><p>Projects</p></a>
                   <p>Contact</p>
                 </div>
-                <Button variant='outlined' style={{ textTransform: "capitalize" }} className='fs-18' onClick={() => setIsContactModal(true)}>Say Hello</Button>
+                {/* <Button variant='outlined' style={{ textTransform: "capitalize" }} className='fs-18' onClick={() => setIsContactModal(true)}>Say Hello</Button> */}
               </div>
             </div>
             :
