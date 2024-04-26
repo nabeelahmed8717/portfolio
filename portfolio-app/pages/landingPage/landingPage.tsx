@@ -14,7 +14,7 @@ import { Box, Button, Grid, IconButton, useMediaQuery } from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image'
-import { workDone } from './landingpage.data'
+import { workDone } from '../../../mock/landingpage'
 import ModalToDrawer from '@/components/shared/modalToDrawer'
 import Link from 'next/link'
 import LinkIcon from '@/public/icons/link'
@@ -300,11 +300,11 @@ const LandingPage = () => {
             </Box>
             <Link href={projectData?.link} target='_blank'><LinkIcon color='#52cfa9' /></Link>
           </Box>
-          <Box className={styles?.description}>
+          {/* <Box className={styles?.description}>
             {
               projectData?.detailedDescription
             }
-          </Box>
+          </Box> */}
           <Box mt={3}>
             <h4 style={{ fontSize: "15px", fontWeight: "500" }}>Languages and Frameworks used</h4>
             <Box className={styles.lg4ChipWrapper} >
