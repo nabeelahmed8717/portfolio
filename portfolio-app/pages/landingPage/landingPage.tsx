@@ -288,7 +288,7 @@ const LandingPage = () => {
       </Box>
 
 
-      <ModalToDrawer toggleDrawer={toggleDrawer} open={open} padding={'20px'}>
+      <ModalToDrawer toggleDrawer={toggleDrawer} open={open} padding={'20px'} borderRadius='20px 0px 20px 0px'>
         <Box className={styles.projectInfoModal}>
           <Box className={styles.imageWrapper}>
             <Image src={projectData?.image} alt='--' />
@@ -298,13 +298,14 @@ const LandingPage = () => {
               <h2>{projectData?.label}</h2>
               <Box className={styles.productChip}>{projectData.chip}</Box>
             </Box>
-            <Link href={projectData?.link} target='_blank'><LinkIcon color='#52cfa9' /></Link>
+            <Link href={projectData?.link ?? "./"} target='_blank'><LinkIcon color='#52cfa9' /></Link>
           </Box>
-          {/* <Box className={styles?.description}>
-            {
-              projectData?.detailedDescription
-            }
-          </Box> */}
+          <Box className={styles?.description}>
+            <div
+              dangerouslySetInnerHTML={{ __html: projectData?.detailedDescription }}
+            />
+          </Box>
+
           <Box mt={3}>
             <h4 style={{ fontSize: "15px", fontWeight: "500" }}>Languages and Frameworks used</h4>
             <Box className={styles.lg4ChipWrapper} >
@@ -321,13 +322,19 @@ const LandingPage = () => {
             <Box className={styles.lg4ChipWrapper} >
               {
                 projectData?.toolsUsed?.map((item: any, index: any) => (
-                  <Box className={styles.chip} key={index}>{item}</Box>
+                  <Box className={styles?.chip} key={index}>{item}</Box>
                 ))
               }
             </Box>
           </Box>
 
-          <Box sx={{ background: "#52cfa9" }}>
+          <Box sx={{
+            background: "#52cfa921",
+            borderRadius: "12px",
+            padding: "20px",
+            marginTop: "47px",
+            marginBottom: "1px",
+          }}>
             <h3 style={{ color: "#FFF", fontSize: "14px", fontWeight: "500" }}>You Reached at the end of content</h3>
             <h4 style={{ color: "#52cfa9", fontSize: "14px", fontWeight: "500" }}>Thanks for Reading</h4>
 

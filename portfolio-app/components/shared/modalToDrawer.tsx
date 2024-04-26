@@ -18,7 +18,7 @@ const style = {
 
 };
 
-const ModalToDrawer = ({ children, toggleDrawer, open, padding }: any) => {
+const ModalToDrawer = ({ children, toggleDrawer, open, padding, borderRadius }: any) => {
 
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -38,7 +38,13 @@ const ModalToDrawer = ({ children, toggleDrawer, open, padding }: any) => {
         <>
             {
                 isMobile ?
-                    <SwipeableDrawer anchor="bottom" open={open} onClose={toggleDrawer(false)} onOpen={() => console.log('')}>
+                    <SwipeableDrawer anchor="bottom" open={open} onClose={toggleDrawer(false)} onOpen={() => console.log('')}
+                    sx={{
+                        '.MuiPaper-root':{
+                            borderRadius: borderRadius ?? '0px'
+                        }
+                     }}>
+
                         <div>
                             <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} onClick={toggleDrawer(false)}><CloseIcon /></div>
                             <div style={{ padding: "20px" }}>
