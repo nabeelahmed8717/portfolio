@@ -43,6 +43,7 @@ const ModalToDrawer = ({ children, toggleDrawer, open, padding, borderRadius }: 
                             '.MuiPaper-root': {
                                 borderRadius: borderRadius ?? '0px',
                                 background: "transparent",
+                                boxShadow:"none"
                             }
                         }}>
 

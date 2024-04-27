@@ -141,11 +141,8 @@ const LandingPage = () => {
         </Box>
         <Box className={styles.profileContent} >
           <h1>
-            Hello, Im <span className="color-green">Nabeel Ahmed</span>, Website Developer and <br /> <span className="board-res">Graphics Designer <i></i><i></i></span>
+            Hello, {"I'm"} <span className="color-green">Nabeel Ahmed</span>, Website Developer and <br /> <span className="board-res">Graphics Designer <i></i><i></i></span>
           </h1>
-
-
-
           <Box sx={{ position: "relative", mt: 6, display: "flex", flexWrap: matches ? 'wrap' : '', gap: "10px" }}>
             <Button fullWidth={matches ? true : false} className={styles.sayhelloBtn}>Say hello</Button>
             <Button fullWidth={matches ? true : false} className={styles.downloadCvBtn}>Download CV</Button>
@@ -280,11 +277,7 @@ const LandingPage = () => {
             }
 
           </Grid>
-
-
         </Box>
-
-
       </Box>
 
 
@@ -294,7 +287,7 @@ const LandingPage = () => {
             <Image src={projectData?.image} alt='--' />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: "20px", marginTop: "30px" }}>
+            <Box sx={{ display: "flex", flexWrap:"wrap", alignItems: "center", gap: "20px", marginTop: "30px" }}>
               <h2>{projectData?.label}</h2>
               <Box className={styles.productChip}>{projectData.chip}</Box>
             </Box>
