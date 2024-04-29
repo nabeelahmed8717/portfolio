@@ -151,7 +151,7 @@ const LandingPage = () => {
         <span></span>
       </Box>
 
-      <Box sx={{position:"fixed", bottom:"30px", right:"30px"}}>
+      <Box sx={{position:"fixed", bottom:"30px", right:"30px", zIndex:"100"}}>
       <CircularProgress
         variant="determinate"
         value={scrollProgress}
