@@ -24,23 +24,27 @@
       display: none !important;
     }
   }
-  .navResMenu{
-    a{
-      color: #333;
-      cursor: pointer;
-      text-decoration: none !important;
-      text-align: center;
-      &:hover{
-        color: #000000;
-      }
+  
+}
+
+.navResMenu{
+  a{
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 16px !important;
+    &:hover{
+      color: #d1d1d1;
     }
-    p{
-      color: #333;
-      cursor: pointer;
-      text-align: center;
-      &:hover{
-        color: #000000;
-      }
+  }
+  p{
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px !important;
+    &:hover{
+      color: #d1d1d1;
     }
   }
 }

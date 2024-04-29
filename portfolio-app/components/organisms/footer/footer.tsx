@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import styles from './footer.module.scss'
-import { Box, Button,  FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material'
+import { Box, Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextareaAutosize, Typography } from '@mui/material'
 import HandHorns from '@/public/handHorns'
 import VectorOne from '@/public/vectorone'
 import WhatsappIcon from '@/public/icons/social/whatsapp'
@@ -88,16 +88,16 @@ const Footer = () => {
           <div className='flex justify-center'>
             <Image src={rocketImage} width={100} alt={''} />
           </div>
-          <h2 className='fs-32 fw-500 text-center' style={{ marginBottom: "40px", marginTop: "20px" }}>
-            {"I’m excited to learn about your project. Ready to get started?"}
+          <h2 className='fs-32 fw-500 text-center' style={{ marginBottom: "40px", marginTop: "20px", color:"#fff" }}>
+            {"I’m excited to learn about your project."} <br /> <span style={{color:"#c8f31d"}}>Ready to get started?</span> 
           </h2>
 
           <form onSubmit={formik.handleSubmit}>
-
             <Grid container spacing={4}>
               <Grid item xs={12} sm={12} md={6} lg={6}>
+                <Typography style={{ color: "rgb(158 158 158)", marginBottom: "10px" }}>Your Name</Typography>
                 <TextField
-                  label="Name"
+                  placeholder="Type here"
                   variant="outlined"
                   fullWidth
                   id="name"
@@ -106,11 +106,15 @@ const Footer = () => {
                   onChange={formik.handleChange}
                   error={formik.touched.name && Boolean(formik.errors.name)}
                   helperText={formik.touched.name && formik.errors.name}
+                  sx={{
+                    color: "#fff",
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12} md={6} lg={6}>
+                <Typography style={{ color: "rgb(158 158 158)", marginBottom: "10px" }}>Your Email</Typography>
                 <TextField
-                  label="Email"
+                  placeholder="Type here"
                   variant="outlined"
                   fullWidth
                   id="email"
@@ -120,21 +124,27 @@ const Footer = () => {
                   onChange={formik.handleChange}
                   error={formik.touched.email && Boolean(formik.errors.email)}
                   helperText={formik.touched.email && formik.errors.email}
+                  sx={{
+                    color: "#fff",
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12} md={6} lg={6}>
                 <FormControl fullWidth error={formik.errors.projectType ? true : false}>
-                  <InputLabel id="project-type-select-helper-label">Type of project</InputLabel>
+                  <Typography style={{ color: "rgb(158 158 158)", marginBottom: "10px" }}>Type of project</Typography>
                   <Select
                     labelId="project-type-select-helper-label"
-                    label="Type of project"
                     variant="outlined"
+                    placeholder='ssdsd'
                     fullWidth
                     id="projectType"
                     name="projectType"
                     value={formik.values.projectType}
                     onChange={formik.handleChange}
                     error={formik.touched.projectType && Boolean(formik.errors.projectType)}
+                    sx={{
+                      color: "#fff",
+                    }}
                   >
                     <MenuItem value="" disabled>Select</MenuItem>
                     <MenuItem value="responsive design">Responsive Design</MenuItem>
@@ -148,10 +158,10 @@ const Footer = () => {
 
               <Grid item xs={12} sm={12} md={6} lg={6}>
                 <FormControl fullWidth error={formik.errors.budget ? true : false}>
-                  <InputLabel id="project-type-select-helper-label">Budget</InputLabel>
+                  <Typography style={{ color: "rgb(158 158 158)", marginBottom: "10px" }}>Budget</Typography>
                   <Select
                     labelId="project-type-select-helper-label"
-                    label="Budget"
+                    // label="Budget"
                     variant="outlined"
                     fullWidth
                     id="budget"
@@ -159,6 +169,9 @@ const Footer = () => {
                     value={formik.values.budget}
                     onChange={formik.handleChange}
                     error={formik.touched.budget && Boolean(formik.errors.budget)}
+                    sx={{
+                      color: "#fff",
+                    }}
                   >
                     <MenuItem value="" disabled>Select</MenuItem>
                     <MenuItem value="admin">-$500</MenuItem>
@@ -171,15 +184,19 @@ const Footer = () => {
               </Grid>
 
               <Grid item xs={12} sm={12} md={12} lg={12}>
-                <TextareaAutosize
-                  aria-label="minimum height"
+                <Typography style={{ color: "rgb(158 158 158)", marginBottom: "10px" }}>Description</Typography>
+                <TextField
+                  multiline
                   minRows={3}
                   placeholder="Description of your project"
                   id="description"
                   name="description"
                   value={formik.values.description}
                   onChange={formik.handleChange}
-                  style={{ width: '100%', padding: '10px', marginTop: '10px', resize: 'none', outline: "none", borderColor: "rgba(0, 0, 0, 0.23)", borderRadius: "4px", fontFamily: 'Inter' }}
+                  fullWidth
+                  sx={{
+                    color: "#fff",
+                  }}
                 />
               </Grid>
 

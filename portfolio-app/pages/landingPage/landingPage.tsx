@@ -10,7 +10,7 @@ import cssIcon from '@/public/images/css.png'
 import reactIcon from '@/public/images/reactjs.png'
 import nodeIcon from '@/public/images/nodejs.png'
 import gitIcon from '@/public/images/git.png'
-import { Box, Button, Grid, IconButton, useMediaQuery } from '@mui/material'
+import { Box, Button, CircularProgress, Grid, IconButton, useMediaQuery } from '@mui/material'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image'
@@ -119,6 +119,28 @@ const LandingPage = () => {
 
   };
 
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const trackLength = documentHeight - windowHeight;
+      const progress = (scrollTop / trackLength) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
   return (
     <Box className={styles.landingPageMain}>
       <Box className={styles.lines}>
@@ -127,6 +149,15 @@ const LandingPage = () => {
         <span></span>
         <span></span>
         <span></span>
+      </Box>
+
+      <Box sx={{position:"fixed", bottom:"30px", right:"30px"}}>
+      <CircularProgress
+        variant="determinate"
+        value={scrollProgress}
+        size={50} // Adjust the size of the CircularProgress
+        thickness={5} // Adjust the thickness of the CircularProgress
+      />
       </Box>
 
       <Box className={styles.mainProfileBox} data-aos="fade-right">
@@ -151,7 +182,7 @@ const LandingPage = () => {
         </Box>
       </Box>
 
-      <Box className={styles.mySkills} >
+      <Box className={styles.mySkills} id="about">
         <Box className={styles.aboutMe}>
           <Box className={styles.aboutmeHead}>
             <h2>About me</h2>
@@ -248,10 +279,10 @@ const LandingPage = () => {
         </Box>
 
 
-        <Box className={styles?.myPortfolio}>
+        <Box className={styles?.myPortfolio} id="projects">
           <Box className={styles?.myPortfolioHead}>
             <h3>Our Portfolio</h3>
-            <p>Look at my work & <br /> give <span>your feedback</span></p>
+            <p>Look at my recent work & <br /> give <span>your feedback</span></p>
           </Box>
 
           <Grid container spacing={6}>
@@ -275,7 +306,6 @@ const LandingPage = () => {
                 </Grid>
               ))
             }
-
           </Grid>
         </Box>
       </Box>
@@ -286,8 +316,8 @@ const LandingPage = () => {
           <Box className={styles.imageWrapper}>
             <Image src={projectData?.image} alt='--' />
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Box sx={{ display: "flex", flexWrap:"wrap", alignItems: "center", gap: "20px", marginTop: "30px" }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "30px" }}>
+            <Box sx={{ display: "flex", flexWrap:"wrap", alignItems: "center", gap: "20px", }}>
               <h2>{projectData?.label}</h2>
               <Box className={styles.productChip}>{projectData.chip}</Box>
             </Box>

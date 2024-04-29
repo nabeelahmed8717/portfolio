@@ -40,6 +40,7 @@ export const workDone = [
     label: "ClockLog",
     image: clocklogWrapper,
     chip: "Time Tracking",
+    detailedDescription:"<p>ClockLog stands as the pinnacle of professional-grade employee time tracking software, meticulously crafted to elevate workforce efficiency and optimize organizational performance. Its comprehensive suite of intuitive dashboards serves as a beacon of insight, enabling businesses to navigate the complexities of employee productivity with unparalleled ease. Within ClockLog's robust framework, three distinct roles converge to drive operational excellence: System Administrators, tasked with orchestrating system integrity and functionality; Employees, the lifeblood of productivity, entrusted with streamlined access to their time management tools; and Company Administrators, the strategic architects of organizational success, wielding powerful oversight capabilities. With ClockLog as your ally, harness the power of precision time tracking to propel your business into a realm of heightened productivity and unparalleled success. </p>",
     languagesUsed: ['Next.js','TypeScript', 'JavaScript','ANT Design', 'React hook Form', 'Redux', 'Redux toolkit query',],
     toolsUsed: ['AWS', 'Jira', 'BitBucket', 'Github', 'VS Code',],
     link:"https://clocklog-frontend.vercel.app",

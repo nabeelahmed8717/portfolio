@@ -160,10 +160,10 @@ const Navbar = () => {
       </ModalToDrawer>
 
       <SwipeableDrawer anchor="left" open={isResMenu} onClose={() => setIsResMenu(false)} onOpen={() => console.log('')}>
-        <div>
+        <div >
           <div style={{ position: "absolute", right: "20px", top: "20px", cursor: "pointer" }} onClick={() => setIsResMenu(false)}><CloseIcon /></div>
           <div style={{ padding: "20px", width: "85vw", display: "flex", alignItems: "center", justifyContent: "center", height: "60vh" }}>
-            <div className={`${styles.navResMenu} flex align-center fs-24`} style={{ gap: "25px", flexDirection: "column" }}>
+            <div  className={`${styles.navResMenu} flex align-center fs-24`} style={{ gap: "25px", flexDirection: "column" }}>
               <p className='fs-24' onClick={() => setIsResMenu(false)}>Home</p>
               <a href="#about" onClick={() => setIsResMenu(false)}><p className='fs-24'>About</p></a>
               <a href="#projects" onClick={() => setIsResMenu(false)}><p className='fs-24'>Projects</p></a>

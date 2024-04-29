@@ -47,12 +47,14 @@ const themeOptions: ThemeOptions = {
                 root: {
                     borderRadius: '8px !important',
                     backgroundColor:"#272B30",
+                    color:"#fff",
                 },
                 input: {
                     height: '11px',
+                    color:"#fff",
                     '&::placeholder': {
                         opacity: 1,
-                        color: '#fff',
+                        color: '#999',
                     },
                 },
             },
@@ -61,6 +63,7 @@ const themeOptions: ThemeOptions = {
             styleOverrides: {
                 root: {
                     transition:"0.3s",
+                    color:"#fff",
                     '& .MuiOutlinedInput-notchedOutline': {
                         borderColor: '#272B30',
                     },
